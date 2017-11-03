@@ -32,14 +32,13 @@ deploy:
       branch: master
       tags: true
   - provider: script
-    env:
-      secure: TODO provides a secure GH_TOKEN env
+    env: GH_TOKEN=123654
     script:
       - pip install $TRAVIS_BUILD_DIR
       - travis-sphinx build -s doc/
       - travis-sphinx deploy -b master
-    on:
-      repo: OCA/oca-decorators
+    #on:
+    #  repo: OCA/oca-decorators
       #branch: master
       #tags: true
 
