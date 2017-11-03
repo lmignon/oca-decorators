@@ -15,7 +15,6 @@ install:
 
 script:
   - tox
-  - travis-sphinx build -s doc/
 
 after_success:
   - codecov
@@ -35,9 +34,12 @@ deploy:
   - provider: script
     env:
       secure: TODO provides a secure GH_TOKEN env
-    script: travis-sphinx deploy -b master
+    script:
+      - pip install $TRAVIS_BUILD_DIR
+      - travis-sphinx build -s doc/
+      - travis-sphinx deploy -b master
     on:
       repo: OCA/oca-decorators
-      branch: master
-      tags: true
+      #branch: master
+      #tags: true
 
