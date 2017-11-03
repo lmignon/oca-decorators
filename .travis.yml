@@ -37,8 +37,8 @@ deploy:
       - pip install $TRAVIS_BUILD_DIR
       - travis-sphinx build -s doc/
       - travis-sphinx deploy -b master
-    #on:
-    #  repo: OCA/oca-decorators
-      #branch: master
+    on:
+      repo: lmignon/oca-decorators
+      branch: master-build-doc
       #tags: true
 
